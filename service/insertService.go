@@ -170,8 +170,9 @@ func (ss *InsertService) DoMetricsQueries() error {
 				labels := prometheus.Labels{}
 
 				for _, label := range promCasaMetric.MetricLabels {
-
+					logger.Debug("Label value is: ", label)
 					if value.Exists(label) {
+						logger.Debug("Label Exists value is: ", label)
 						labels[label] = value.S(label).Data().(string)
 					}
 				}
